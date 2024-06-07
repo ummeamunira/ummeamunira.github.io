@@ -1,14 +1,18 @@
-#title: Umme Munira
-#logo:
-#description: Welcome! Explore three sections: Byte-Sized Data Interview for actionable data interview tips, Generative AI and LLM Projects showcasing my analytics work, and SupplySenseAI highlighting AI-driven supply chain projects. Discover, learn, and get inspired by the power of data science and AI.
-#show_downloads: true
+title: My Website
+description: >- # this means to ignore newlines until "baseurl:"
+  Welcome to my personal website.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://ummeamunira.github.io" # the base hostname & protocol for your site
+
+theme: jekyll-theme-slate # replace with your chosen theme
+
 navigation:
   - title: "Home"
     url: /
   - title: "Byte-Sized Data Interview"
-    url: /data-interview
-  - title: "Generative AI and LLM Projects"
-    url: /generative-ai
+    url: /data-interview/
+  - title: "Analytics and GenAI"
+    url: /analytics/
   - title: "SupplySenseAI"
-    url: /supply-sense-ai
-theme: jekyll-theme-slate
+    url: /supply-sense-ai/
+
