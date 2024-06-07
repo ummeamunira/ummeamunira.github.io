@@ -4,7 +4,7 @@ layout: default
 title: Home
 ---
 
-# Welcome to My Website
+# Welcome!
 
 Explore the various sections of my website:
 
