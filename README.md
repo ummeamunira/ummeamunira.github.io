@@ -73,12 +73,6 @@ The prep module implements a free/paid tier model with a live SQL practice envir
 | DS Interview Playbook | ML fundamentals, system design, 60-page PDF | $69 CAD |
 | Data Architecture for DS | Medallion architecture, pipeline patterns, templates | $59 CAD |
 
-### 1:1 Coaching
-| Session | Duration | Price |
-|---------|----------|-------|
-| Interview Audit | 30 min mock + written feedback | $75 CAD |
-| Full Prep Session | 60 min deep dive | $150 CAD |
-| 3-Session Package | Full interview arc | $350 CAD |
 
 ---
 
