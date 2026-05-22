@@ -1,6 +1,6 @@
 # ummeamunira.github.io
 
-Personal site and practitioner platform for **Umme Amunira** — Senior Data Scientist specialising in energy analytics and ML systems.
+Personal site and practitioner platform for **Umme Munira** — Senior Data Scientist specialising in energy analytics and ML systems.
 
 Live at → [ummeamunira.com](https://ummeamunira.com)
 
@@ -127,9 +127,8 @@ Concepts covered across 10 free questions: `GROUP BY`, `ORDER BY`, `JOIN`, `DATE
 
 ## About
 
-**Umme Amunira** is a Senior Data Scientist with 10+ years in energy analytics across ATCO Gas, Suncor Energy, and the Alberta Energy Regulator. She builds end-to-end ML systems — time-series forecasting, anomaly detection, predictive optimisation — on Azure Databricks and Microsoft Fabric.
+**Umme Munira** is a Senior Data Scientist with 10+ years in energy analytics across ATCO Gas, Suncor Energy, and the Alberta Energy Regulator. She builds end-to-end ML systems — time-series forecasting, anomaly detection, predictive optimisation — on Azure Databricks and Microsoft Fabric.
 
-Writing weekly on energy analytics and AI at [The Energy Signal](#).
 
 Connect on [LinkedIn](https://linkedin.com/in/uamunira).
 
