@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umme Munira — Senior Data Scientist & Energy Analytics Lead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#ffffff;--black:#0a0a0a;--off:#f5f4f0;--off2:#eeeDE8;--border:#d8d6cf;--border2:#c4c2ba;
+  --text:#1a1a1a;--text2:#5a5850;--text3:#9a9890;
+  --accent:#e8380d;--accent2:#ff4d1f;--accent-bg:#fff2ef;
+  --green:#1a7a4a;--green-bg:#edf7f2;
+  --blue:#1a4a8a;--blue-bg:#eff3fb;
+  --gold:#8a6a0a;--gold-bg:#fdf8ec;
+  --fn-sans:'Plus Jakarta Sans',sans-serif;
+  --fn-serif:'DM Serif Display',serif;
+  --fn-mono:'DM Mono',monospace;
+  --shadow:0 1px 3px rgba(0,0,0,0.07),0 4px 16px rgba(0,0,0,0.05);
+}
+html{scroll-behavior:smooth}
+body{background:var(--off);color:var(--text);font-family:var(--fn-sans);font-size:15px;line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--off)}::-webkit-scrollbar-thumb{background:var(--accent)}
+.page{display:none;min-height:100vh;padding-top:60px;animation:fu .25s ease}
+.page.active{display:block}
+@keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,244,240,0.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:60px;padding:0 48px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:var(--fn-sans);font-weight:800;font-size:17px;color:var(--black);cursor:pointer;display:flex;align-items:center;gap:10px;letter-spacing:-0.3px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;flex-shrink:0}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text2);text-decoration:none;padding:7px 14px;border-radius:6px;transition:all .15s;cursor:pointer}
+.nav-links a:hover{color:var(--text);background:var(--off2)}
+.nav-links a.active{color:var(--accent);background:var(--accent-bg)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 48px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--accent)}
+.page-title{font-family:var(--fn-serif);font-size:52px;color:var(--black);line-height:1.05;letter-spacing:-1px;margin-bottom:16px}
+.page-sub{font-size:17px;color:var(--text2);max-width:560px;line-height:1.6}
+.tag{display:inline-flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:4px}
+.tr{background:var(--accent-bg);color:var(--accent)}
+.tg{background:var(--green-bg);color:var(--green)}
+.tb{background:var(--blue-bg);color:var(--blue)}
+.to{background:var(--gold-bg);color:var(--gold)}
+.tgr{background:var(--off2);color:var(--text2)}
+.btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--fn-sans);font-size:13px;font-weight:700;padding:10px 20px;border-radius:7px;border:none;cursor:pointer;transition:all .15s;letter-spacing:.01em;text-decoration:none}
+.bp{background:var(--accent);color:#fff}.bp:hover{background:var(--accent2);transform:translateY(-1px)}
+.bo{background:transparent;color:var(--text);border:1.5px solid var(--border2)}.bo:hover{border-color:var(--text);background:var(--off2);transform:translateY(-1px)}
+.bg{background:transparent;color:var(--text2);border:1.5px solid var(--border)}.bg:hover{color:var(--text);border-color:var(--border2)}
+input,select,textarea{font-family:var(--fn-sans);font-size:14px;color:var(--text);background:var(--white);border:1px solid var(--border);border-radius:7px;padding:10px 14px;outline:none;transition:border-color .15s;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+input::placeholder{color:var(--text3)}
+.toast{position:fixed;bottom:28px;right:28px;z-index:9999;background:var(--black);color:#fff;font-size:13px;font-weight:500;padding:12px 20px;border-radius:8px;opacity:0;transform:translateY(6px);transition:all .25s;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* HOME */
+.hero-sec{padding:80px 0 72px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero-sec::before{content:'';position:absolute;top:-100px;right:-60px;width:500px;height:500px;background:radial-gradient(circle,rgba(232,56,13,.07) 0%,transparent 65%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hero-lbl{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+.hero-lbl .bar{width:24px;height:2px;background:var(--accent)}
+.hero-name{font-family:var(--fn-serif);font-size:clamp(52px,6vw,80px);color:var(--black);line-height:.97;letter-spacing:-2px;margin-bottom:8px}
+.hero-name .it{font-style:italic;color:var(--accent)}
+.hero-role{font-size:14px;font-weight:600;color:var(--text2);letter-spacing:.02em;margin-bottom:28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hero-role .sep{color:var(--border2)}
+.hero-tag{font-size:17px;color:var(--text2);line-height:1.65;max-width:460px;margin-bottom:36px}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.trust-row{display:flex;align-items:center;margin-top:32px;flex-wrap:wrap}
+.trust-item{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);padding:8px 18px;border:1px solid var(--border);border-right:none}
+.trust-item:first-child{border-radius:6px 0 0 6px}
+.trust-item:last-child{border-right:1px solid var(--border);border-radius:0 6px 6px 0}
+.hero-vis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat-c{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px 20px}
+.stat-c.blk{background:var(--black);border-color:var(--black);grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:20px 24px}
+.sn{font-family:var(--fn-serif);font-size:36px;color:var(--black);line-height:1;margin-bottom:4px}
+.sl{font-size:12px;font-weight:500;color:var(--text3);letter-spacing:.04em}
+.stat-c.blk .sn{color:#fff;font-size:22px}
+.stat-c.blk .sl{color:rgba(255,255,255,.45);font-size:12px}
+.blk-badge{font-size:12px;font-weight:600;color:var(--accent);background:rgba(232,56,13,.18);padding:6px 12px;border-radius:5px}
+.mods-sec{padding:64px 0;border-bottom:1px solid var(--border)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px}
+.sec-title{font-family:var(--fn-serif);font-size:38px;color:var(--black);letter-spacing:-.8px;line-height:1.1}
+.mods-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.mod{background:var(--white);padding:28px 24px;cursor:pointer;transition:background .15s;position:relative}
+.mod:hover{background:var(--off)}
+.mod::after{content:'→';position:absolute;bottom:24px;right:24px;font-size:18px;color:var(--accent);opacity:0;transform:translateX(-6px);transition:all .2s}
+.mod:hover::after{opacity:1;transform:translateX(0)}
+.mn{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.1em;margin-bottom:16px}
+.mt{font-size:16px;font-weight:700;color:var(--black);margin-bottom:8px;letter-spacing:-.2px}
+.md{font-size:13px;color:var(--text2);line-height:1.5}
+.nl-band{background:var(--black);padding:52px 0}
+.nl-in{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.nl-in h3{font-family:var(--fn-serif);font-size:28px;color:#fff;letter-spacing:-.5px;margin-bottom:6px}
+.nl-in p{font-size:14px;color:rgba(255,255,255,.45)}
+.nl-form{display:flex;gap:8px}
+.nl-form input{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff;width:260px}
+.nl-form input::placeholder{color:rgba(255,255,255,.3)}
+.nl-form input:focus{border-color:var(--accent)}
+footer{background:var(--black);padding:32px 0}
+.fi{display:flex;align-items:center;justify-content:space-between;width:100%}
+.fl{font-size:13px;color:rgba(255,255,255,.4)}
+.fc a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .15s}
+.fc a:hover{color:#fff}
+.fr{display:flex;gap:8px;align-items:center}
+.fr input{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:#fff;width:180px;font-size:12px;padding:8px 12px}
+.fr input::placeholder{color:rgba(255,255,255,.3)}
+.fr input:focus{border-color:var(--accent)}
+
+/* WRITING */
+.wh{padding:64px 0 48px;border-bottom:1px solid var(--border)}
+.feat{padding:48px 0;border-bottom:1px solid var(--border)}
+.feat-in{display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start}
+.feat-tr{display:flex;gap:8px;margin-bottom:20px;align-items:center}
+.feat-title{font-family:var(--fn-serif);font-size:34px;color:var(--black);line-height:1.15;letter-spacing:-.8px;margin-bottom:16px;cursor:pointer;transition:color .15s}
+.feat-title:hover{color:var(--accent)}
+.feat-ex{font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:24px}
+.feat-meta{font-size:13px;color:var(--text3);display:flex;gap:20px}
+.aside{background:var(--off);border:1px solid var(--border);border-radius:10px;padding:24px}
+.aside h4{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.aside-item{padding:12px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text);line-height:1.4;cursor:pointer;transition:color .15s}
+.aside-item:hover{color:var(--accent)}
+.aside-item:last-child{border:none}
+.aside-m{font-size:11px;color:var(--text3);margin-top:4px}
+.art-sec{padding:48px 0}
+.filt-row{display:flex;gap:6px;margin-bottom:36px;flex-wrap:wrap}
+.fp{font-size:12px;font-weight:600;padding:6px 14px;background:var(--off2);color:var(--text2);border:1px solid var(--border);border-radius:20px;cursor:pointer;transition:all .15s}
+.fp:hover,.fp.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ag{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ac{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px;cursor:pointer;transition:all .2s}
+.ac:hover{box-shadow:var(--shadow);border-color:var(--border2);transform:translateY(-2px)}
+.at{font-size:16px;font-weight:700;color:var(--black);line-height:1.3;margin-bottom:10px;letter-spacing:-.2px;margin-top:10px}
+.ae{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:16px}
+.am{font-size:11px;color:var(--text3);display:flex;justify-content:space-between;border-top:1px solid var(--border);padding-top:12px}
+
+/* PREP */
+.ph{padding:64px 0 0;border-bottom:1px solid var(--border)}
+.ph-grid{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start;padding-bottom:48px}
+.tier-sw{display:flex;background:var(--off2);border:1px solid var(--border);border-radius:8px;padding:4px;width:fit-content;margin-top:32px;gap:4px}
+.tb2{font-family:var(--fn-sans);font-size:13px;font-weight:700;padding:8px 24px;border-radius:5px;border:none;cursor:pointer;transition:all .15s;letter-spacing:.02em}
+.fa{background:var(--white);color:var(--black);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.fi2{background:transparent;color:var(--text2)}
+.pa{background:var(--accent);color:#fff;box-shadow:0 1px 3px rgba(232,56,13,.3)}
+.pi{background:transparent;color:var(--text2)}
+.free-s{padding:48px 0 64px}
+.paid-s{padding:48px 0 64px;display:none}
+.paid-s.show{display:block}
+.ql{display:flex;flex-direction:column;gap:10px;margin-bottom:48px}
+.q-sec-lbl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.q-sec-lbl::after{content:'';flex:1;height:1px;background:var(--border)}
+.qc{background:var(--white);border:1px solid var(--border);border-radius:9px;overflow:hidden}
+.qh{padding:16px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .12s}
+.qh:hover{background:var(--off)}
+.qn{font-family:var(--fn-mono);font-size:12px;font-weight:500;color:var(--accent);min-width:28px}
+.qt{flex:1;font-size:14px;font-weight:500;color:var(--black)}
+.qps{display:flex;gap:5px;flex-shrink:0}
+.qp{font-size:10px;font-weight:600;letter-spacing:.04em;padding:3px 8px;border-radius:4px;background:var(--off2);color:var(--text2)}
+.qcaret{font-size:16px;color:var(--text3);transition:transform .2s;margin-left:4px}
+.qc.open .qcaret{transform:rotate(90deg);color:var(--accent)}
+.qbody{display:none;padding:0 20px 20px;border-top:1px solid var(--border)}
+.qc.open .qbody{display:block}
+.trow{display:flex;gap:8px;margin-top:16px}
+.tpill{font-size:12px;font-weight:600;padding:6px 14px;background:var(--off2);color:var(--text2);border:1px solid var(--border);border-radius:5px;cursor:pointer;transition:all .15s}
+.tpill:hover{background:var(--off);color:var(--text)}
+.hb,.ab{display:none;margin-top:12px;padding:14px 16px;border-radius:6px;font-size:13px;line-height:1.65}
+.hb.show{display:block;background:var(--gold-bg);border-left:3px solid var(--gold);color:var(--text)}
+.ab.show{display:block;background:#161b22;color:#d4f0e0;font-family:var(--fn-mono);font-size:12px;white-space:pre-wrap;border-radius:8px;line-height:1.75}
+.kw{color:#79c0ff}.fn{color:#7ee787}.str{color:#ffa657}.cm{color:#8b949e}
+.gate{background:var(--off);border:1px solid var(--border);border-radius:10px;padding:36px;text-align:center;margin-bottom:10px}
+.gate h3{font-family:var(--fn-serif);font-size:24px;color:var(--black);margin-bottom:8px}
+.gate p{font-size:14px;color:var(--text2);margin-bottom:24px}
+.gate-f{display:flex;gap:8px;justify-content:center;max-width:380px;margin:0 auto}
+.gate-f input{max-width:240px}
+.sbx{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.sbar{background:var(--off2);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.stitle{font-size:13px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px}
+.livd{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.tchips{display:flex;gap:5px}
+.tchip{font-size:10px;font-weight:600;color:var(--text2);background:var(--white);border:1px solid var(--border);padding:3px 9px;border-radius:4px}
+.sql-p{padding:20px 22px;background:#161b22;font-family:var(--fn-mono);font-size:12px;color:#8b949e;line-height:1.8;min-height:110px;border-bottom:1px solid #30363d;white-space:pre}
+.sfoot{padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.snote{font-size:11px;color:var(--text3)}
+.tg-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px}
+.trk{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:28px}
+.trk-n{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.1em;margin-bottom:14px}
+.trk-name{font-size:18px;font-weight:800;color:var(--black);letter-spacing:-.3px;margin-bottom:14px}
+.trk-l{list-style:none;margin-bottom:24px}
+.trk-l li{font-size:13px;color:var(--text2);padding:5px 0;padding-left:16px;position:relative}
+.trk-l li::before{content:'—';position:absolute;left:0;color:var(--accent)}
+.trk-p{font-family:var(--fn-serif);font-size:32px;color:var(--black);margin-bottom:16px}
+.trk-p sub{font-size:15px;font-family:var(--fn-sans);font-weight:500;color:var(--text2)}
+.coach{background:var(--off);border:1px solid var(--border);border-radius:10px;padding:32px}
+.coach h3{font-family:var(--fn-serif);font-size:26px;color:var(--black);margin-bottom:6px}
+.coach>p{font-size:14px;color:var(--text2);margin-bottom:28px}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.co{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:20px;text-align:center}
+.cp{font-family:var(--fn-serif);font-size:26px;color:var(--accent);margin-bottom:6px}
+.cn{font-size:14px;font-weight:700;color:var(--black);margin-bottom:5px}
+.cd{font-size:12px;color:var(--text2);margin-bottom:16px;line-height:1.5}
+
+/* PROJECTS */
+.prj-h{padding:64px 0 48px;border-bottom:1px solid var(--border)}
+.prj-list{padding:0}
+.prj-item{padding:40px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+.ps{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.ps.live{color:var(--green)}.ps.prog{color:var(--gold)}.ps.wr{color:var(--text3)}
+.li{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+.pn{font-family:var(--fn-serif);font-size:30px;color:var(--black);letter-spacing:-.5px;margin-bottom:10px}
+.pd{font-size:15px;color:var(--text2);max-width:580px;line-height:1.6;margin-bottom:18px}
+.sr{display:flex;gap:7px;flex-wrap:wrap}
+.sb{font-size:11px;font-weight:600;color:var(--text2);background:var(--off2);border:1px solid var(--border);padding:4px 10px;border-radius:5px}
+.pa2{display:flex;flex-direction:column;gap:8px;flex-shrink:0;padding-top:36px}
+
+/* CONSULTING */
+.ch{padding:64px 0 0;border-bottom:1px solid var(--border)}
+.ch-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;padding-bottom:64px}
+.crl{list-style:none;margin-top:28px}
+.cri{padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text2);line-height:1.5;display:flex;align-items:flex-start;gap:12px}
+.cri::before{content:'→';color:var(--accent);flex-shrink:0;font-weight:700}
+.cri:last-child{border:none}
+.foc{background:var(--off);border:1px solid var(--border);border-radius:10px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-self:start;margin-top:60px}
+.fi3{background:var(--white);border:1px solid var(--border);border-radius:7px;padding:14px 16px;font-size:13px;font-weight:500;color:var(--text)}
+.pr-s{padding:64px 0;border-bottom:1px solid var(--border)}
+.pr-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.pc{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:28px}
+.pc.feat{border:2px solid var(--accent)}
+.pop{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;padding:4px 10px;border-radius:4px;margin-bottom:12px}
+.pname{font-size:16px;font-weight:700;color:var(--black);margin-bottom:14px}
+.pamt{font-family:var(--fn-serif);font-size:38px;color:var(--black);margin-bottom:8px;letter-spacing:-1px}
+.pamt small{font-size:16px;font-family:var(--fn-sans);color:var(--text2)}
+.pdesc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:24px}
+.con-s{padding:64px 0;border-top:1px solid var(--border)}
+.con-g{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fgrp{display:flex;flex-direction:column;gap:6px}
+.fgrp.full{grid-column:1/-1}
+.flbl{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:.06em;text-transform:uppercase}
+textarea{min-height:100px;resize:vertical}
+
+/* BUILDING */
+.bld{min-height:calc(100vh - 60px);display:flex;flex-direction:column}
+.bld-hero{flex:1;display:flex;flex-direction:column;justify-content:center;padding:80px 0;border-bottom:1px solid var(--border)}
+.bld-in{max-width:680px}
+.bld-title{font-family:var(--fn-serif);font-size:clamp(46px,6vw,70px);color:var(--black);line-height:1;letter-spacing:-2px;margin-bottom:40px}
+.bld-title .red{color:var(--accent)}
+.bld-body p{font-size:17px;color:var(--text2);line-height:1.75;margin-bottom:20px}
+.bld-body strong{color:var(--black);font-weight:600}
+.bld-rule{width:40px;height:3px;background:var(--accent);margin:36px 0}
+.bld-cta{display:flex;gap:12px;margin-top:40px;align-items:center}
+.bld-note{font-size:13px;color:var(--text3)}
+
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .wrap{padding:0 20px}
+  .hero-grid,.feat-in,.ph-grid,.ch-grid,.con-g{grid-template-columns:1fr}
+  .mods-grid{grid-template-columns:1fr 1fr}
+  .ag,.tg-grid,.cg,.pr-g,.fg{grid-template-columns:1fr}
+  .prj-item{grid-template-columns:1fr}
+  .nl-in{flex-direction:column}
+  .fi{flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="toast" id="t0"></div>
+<nav>
+  <div class="nav-brand" onclick="go('home')"><span class="dot"></span>Umme Munira</div>
+  <ul class="nav-links">
+    <li><a id="nh" class="active" onclick="go('home')">Home</a></li>
+    <li><a id="nw" onclick="go('writing')">Writing</a></li>
+    <li><a id="np" onclick="go('prep')">Prep</a></li>
+    <li><a id="nj" onclick="go('projects')">Projects</a></li>
+    <li><a id="nc" onclick="go('consulting')">Consulting</a></li>
+    <li><a id="nb" onclick="go('building')">Building</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="pg-home">
+  <div class="hero-sec">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-lbl"><span class="bar"></span>Calgary, Canada</div>
+          <h1 class="hero-name">Umme<br><span class="it">Munira</span></h1>
+          <div class="hero-role">Senior Data Scientist<span class="sep">·</span>Energy Analytics Lead<span class="sep">·</span>ML Systems</div>
+          <p class="hero-tag">I build end-to-end ML systems for energy operations — time-series forecasting, anomaly detection, and predictive optimisation on Azure Databricks and Microsoft Fabric.</p>
+          <div class="hero-ctas">
+            <button class="btn bp" onclick="go('writing')">Read my writing →</button>
+            <button class="btn bo" onclick="go('consulting')">Work with me</button>
+          </div>
+          <div class="trust-row">
+            <div class="trust-item">ATCO Gas</div>
+            <div class="trust-item">Suncor Energy</div>
+            <div class="trust-item">Alberta Energy Regulator</div>
+          </div>
+        </div>
+        <div class="hero-vis">
+          <div class="stat-c"><div class="sn">10+</div><div class="sl">Years in energy analytics</div></div>
+          <div class="stat-c"><div class="sn">MSc</div><div class="sl">Chemical Engineering</div></div>
+          <div class="stat-c"><div class="sn">E2E</div><div class="sl">Pipeline to production</div></div>
+          <div class="stat-c"><div class="sn">3</div><div class="sl">Major energy organisations</div></div>
+          <div class="stat-c blk"><div><div class="sn">The Energy Signal</div><div class="sl">Weekly newsletter — energy analytics & AI</div></div><div class="blk-badge">Subscribe →</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mods-sec">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="sec-title">What you'll find here</h2></div>
+      <div class="mods-grid">
+        <div class="mod" onclick="go('writing')"><div class="mn">01 — WRITING</div><div class="mt">Thought Leadership</div><div class="md">Practitioner posts on energy analytics, ML systems, and the gap between them.</div></div>
+        <div class="mod" onclick="go('prep')"><div class="mn">02 — PREP</div><div class="mt">Interview Prep</div><div class="md">SQL, A/B testing, ML and data architecture for DS roles in energy industries.</div></div>
+        <div class="mod" onclick="go('projects')"><div class="mn">03 — PROJECTS</div><div class="mt">Technical Portfolio</div><div class="md">ML systems built under real production constraints with energy domain context.</div></div>
+        <div class="mod" onclick="go('consulting')"><div class="mn">04 — CONSULTING</div><div class="mt">Fractional DS</div><div class="md">Senior DS expertise for energy companies — without the full-time hire.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="nl-band"><div class="wrap"><div class="nl-in">
+    <div><h3>The Energy Signal</h3><p>Weekly signal on energy analytics and AI. No noise. No sponsorships.</p></div>
+    <div class="nl-form"><input type="email" id="nlh" placeholder="your@email.com"><button class="btn bp" onclick="sub('nlh')">Subscribe →</button></div>
+  </div></div></div>
+  <footer><div class="wrap"><div class="fi"><span class="fl">© 2025 Umme Munira</span><div class="fc"><a href="#" target="_blank">LinkedIn ↗</a></div><div class="fr"><input type="email" placeholder="The Energy Signal"><button class="btn bp" style="padding:8px 14px;font-size:12px" onclick="toast('Subscribed!')">→</button></div></div></div></footer>
+</div>
+
+<!-- WRITING -->
+<div class="page" id="pg-writing">
+  <div class="wh"><div class="wrap"><div class="eyebrow">Thought Leadership</div><h1 class="page-title">Writing</h1><p class="page-sub">Practitioner posts on energy analytics, ML systems, and the gap between them.</p></div></div>
+  <div class="feat"><div class="wrap"><div class="feat-in">
+    <div>
+      <div class="feat-tr"><span class="tag tr">Featured</span><span class="tag tgr">8 min read</span></div>
+      <div class="feat-title" onclick="toast('Full article coming — subscribe to be notified')">You're Measuring Forecast Accuracy Wrong — And It Depends on the Time Horizon</div>
+      <p class="feat-ex">The energy industry has two fundamentally different forecasting problems — short-term operational and long-term planning — and it evaluates both with the same metric. That conflation is costing utilities real money and costing data scientists real credibility.</p>
+      <div class="feat-meta"><span>Load Forecasting</span><span>May 2025</span><span style="color:var(--accent);cursor:pointer">Read article ↗</span></div>
+    </div>
+    <div class="aside">
+      <h4>Also in this series</h4>
+      <div class="aside-item" onclick="toast('Coming Week 2')">Two Forecasting Problems. One Wrong Metric.<div class="aside-m">Week 2 · Carousel</div></div>
+      <div class="aside-item" onclick="toast('Coming Week 3')">What MAPE Hides at Peak Hours<div class="aside-m">Week 3 · Chart post</div></div>
+      <div class="aside-item" onclick="toast('Coming Week 4')">Your Forecast Model Is Not Your Forecast<div class="aside-m">Week 4 · Text post</div></div>
+      <div class="aside-item" onclick="toast('Coming Week 6')">Load Forecast Error Explorer<div class="aside-m">Week 6 · Streamlit app</div></div>
+    </div>
+  </div></div></div>
+  <div class="art-sec"><div class="wrap">
+    <div class="filt-row">
+      <button class="fp active" onclick="filt(this)">All</button>
+      <button class="fp" onclick="filt(this)">Load Forecasting</button>
+      <button class="fp" onclick="filt(this)">Anomaly Detection</button>
+      <button class="fp" onclick="filt(this)">MLOps</button>
+      <button class="fp" onclick="filt(this)">Energy Markets</button>
+      <button class="fp" onclick="filt(this)">Career</button>
+    </div>
+    <div class="ag">
+      <div class="ac"><span class="tag tb">Load Forecasting</span><div class="at">Short-Term vs Long-Term: A Complete Comparison</div><div class="ae">Time horizon, decision served, input drivers, accuracy metric, validation approach — a full side-by-side breakdown.</div><div class="am"><span>Week 5 · Carousel</span><span>6 min</span></div></div>
+      <div class="ac"><span class="tag tgr">MLOps</span><div class="at">Your Forecast Model Is Not Your Forecast</div><div class="ae">A forecast model is a function. A forecast is an operational commitment. The gap between those two is where most utility systems fail.</div><div class="am"><span>Week 4 · Text</span><span>2 min</span></div></div>
+      <div class="ac"><span class="tag to">Energy Markets</span><div class="at">The Organizational Consequence Nobody Talks About</div><div class="ae">The forecasting accuracy problem at most utilities isn't technical. It's organizational. Here's what I mean.</div><div class="am"><span>Week 7 · Text</span><span>3 min</span></div></div>
+      <div class="ac"><span class="tag tb">Load Forecasting</span><div class="at">5 Things I'd Build Differently in a Utility Forecasting System</div><div class="ae">Years building ML systems inside regulated energy utilities. Here's what I'd do differently from scratch.</div><div class="am"><span>Week 9 · Carousel</span><span>5 min</span></div></div>
+      <div class="ac"><span class="tag tgr">MLOps</span><div class="at">What MAPE Hides at Peak Hours</div><div class="ae">Both of these are "accurate" load forecasts. One has better average MAPE. One is actually useful operationally.</div><div class="am"><span>Week 3 · Chart</span><span>3 min</span></div></div>
+      <div class="ac"><span class="tag tr">Career</span><div class="at">The Pipeline I'm Embarrassed I Shipped</div><div class="ae">A bug quietly inflating one accuracy metric since day one. The specific failure mode, and what I changed.</div><div class="am"><span>Upcoming</span><span>4 min</span></div></div>
+    </div>
+  </div></div>
+  <div class="nl-band" style="margin-top:64px"><div class="wrap"><div class="nl-in"><div><h3>The Energy Signal</h3><p>Get new posts in your inbox. Weekly. No noise.</p></div><div class="nl-form"><input type="email" id="nlw" placeholder="your@email.com"><button class="btn bp" onclick="sub('nlw')">Subscribe →</button></div></div></div></div>
+  <footer><div class="wrap"><div class="fi"><span class="fl">© 2025 Umme Munira</span><div class="fc"><a href="#" target="_blank">LinkedIn ↗</a></div><div class="fr"><input type="email" placeholder="The Energy Signal"><button class="btn bp" style="padding:8px 14px;font-size:12px" onclick="toast('Subscribed!')">→</button></div></div></div></footer>
+</div>
+
+<!-- PREP -->
+<div class="page" id="pg-prep">
+  <div class="ph"><div class="wrap"><div class="ph-grid">
+    <div>
+      <div class="eyebrow">Interview Preparation</div>
+      <h1 class="page-title">DS Interview Prep</h1>
+      <p class="page-sub">Built for energy and data-intensive industries. SQL, A/B testing, ML fundamentals, and data architecture.</p>
+      <div class="tier-sw">
+        <button class="tb2 fa" id="tbf" onclick="showT('free')">Free Tier</button>
+        <button class="tb2 pi" id="tbp" onclick="showT('paid')">Paid Tier</button>
+      </div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px;margin-top:20px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--text3);margin-bottom:16px">FREE TIER INCLUDES</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
+        <div style="font-size:13px;color:var(--text2)"><span style="color:var(--green);font-weight:700">✓</span> &nbsp;3 open questions — no signup required</div>
+        <div style="font-size:13px;color:var(--text2)"><span style="color:var(--green);font-weight:700">✓</span> &nbsp;7 more questions after email unlock</div>
+        <div style="font-size:13px;color:var(--text2)"><span style="color:var(--green);font-weight:700">✓</span> &nbsp;Hints + full annotated SQL solutions</div>
+        <div style="font-size:13px;color:var(--text2)"><span style="color:var(--green);font-weight:700">✓</span> &nbsp;Live SQL sandbox with 4 tables</div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:16px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--text3);margin-bottom:12px">PAID TIER ADDS</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="font-size:13px;color:var(--text2)"><span style="color:var(--accent);font-weight:700">✓</span> &nbsp;100 SQL questions + energy domain tables</div>
+          <div style="font-size:13px;color:var(--text2)"><span style="color:var(--accent);font-weight:700">✓</span> &nbsp;A/B Testing & Causal Inference track</div>
+          <div style="font-size:13px;color:var(--text2)"><span style="color:var(--accent);font-weight:700">✓</span> &nbsp;DS Interview Playbook — 60-page PDF</div>
+          <div style="font-size:13px;color:var(--text2)"><span style="color:var(--accent);font-weight:700">✓</span> &nbsp;Data Architecture track + diagram templates</div>
+        </div>
+      </div>
+    </div>
+  </div></div></div>
+
+  <div class="free-s" id="fss"><div class="wrap">
+    <div class="q-sec-lbl">SQL Track · Retail Dataset · 10 Questions</div>
+    <div class="ql">
+      <div class="qc" id="q1"><div class="qh" onclick="oq('q1')"><span class="qn">Q1</span><span class="qt">Calculate total revenue by region, ordered highest to lowest.</span><div class="qps"><span class="qp">Aggregation</span><span class="qp">GROUP BY</span></div><span class="tag tg" style="font-size:10px;padding:3px 8px;flex-shrink:0">Basic</span><span class="qcaret">›</span></div>
+        <div class="qbody"><div class="trow"><button class="tpill" onclick="tg('h1')">Show hint</button><button class="tpill" onclick="tg('a1')">Show answer</button></div>
+          <div class="hb" id="h1">Join orders to order_items. SUM revenue grouped by region. Apply discount before summing to get net revenue.</div>
+          <div class="ab" id="a1"><span class="kw">SELECT</span>
+  o.region,
+  <span class="fn">SUM</span>(oi.quantity * oi.unit_price * (1 - oi.discount)) <span class="kw">AS</span> total_revenue
+<span class="kw">FROM</span> orders o
+<span class="kw">JOIN</span> order_items oi <span class="kw">ON</span> o.order_id = oi.order_id
+<span class="kw">GROUP BY</span> o.region
+<span class="kw">ORDER BY</span> total_revenue <span class="kw">DESC</span>;</div></div></div>
+
+      <div class="qc" id="q2"><div class="qh" onclick="oq('q2')"><span class="qn">Q2</span><span class="qt">Find the top 5 customers by total lifetime spend.</span><div class="qps"><span class="qp">JOIN</span><span class="qp">Aggregation</span></div><span class="tag tg" style="font-size:10px;padding:3px 8px;flex-shrink:0">Basic</span><span class="qcaret">›</span></div>
+        <div class="qbody"><div class="trow"><button class="tpill" onclick="tg('h2')">Show hint</button><button class="tpill" onclick="tg('a2')">Show answer</button></div>
+          <div class="hb" id="h2">Three-table join: customers → orders → order_items. SUM spend per customer, ORDER BY DESC, LIMIT 5.</div>
+          <div class="ab" id="a2"><span class="kw">SELECT</span>
+  c.customer_id, c.name,
+  <span class="fn">SUM</span>(oi.quantity * oi.unit_price * (1 - oi.discount)) <span class="kw">AS</span> total_spend
+<span class="kw">FROM</span> customers c
+<span class="kw">JOIN</span> orders o <span class="kw">ON</span> c.customer_id = o.customer_id
+<span class="kw">JOIN</span> order_items oi <span class="kw">ON</span> o.order_id = oi.order_id
+<span class="kw">GROUP BY</span> c.customer_id, c.name
+<span class="kw">ORDER BY</span> total_spend <span class="kw">DESC</span>
+<span class="kw">LIMIT</span> 5;</div></div></div>
+
+      <div class="qc" id="q3"><div class="qh" onclick="oq('q3')"><span class="qn">Q3</span><span class="qt">Monthly order count and total revenue for the last 12 months.</span><div class="qps"><span class="qp">DATE functions</span><span class="qp">Aggregation</span></div><span class="tag tg" style="font-size:10px;padding:3px 8px;flex-shrink:0">Basic</span><span class="qcaret">›</span></div>
+        <div class="qbody"><div class="trow"><button class="tpill" onclick="tg('h3')">Show hint</button><button class="tpill" onclick="tg('a3')">Show answer</button></div>
+          <div class="hb" id="h3">DATE_TRUNC('month', order_date) groups by month. Filter with WHERE order_date >= CURRENT_DATE - INTERVAL '12 months'.</div>
+          <div class="ab" id="a3"><span class="kw">SELECT</span>
+  <span class="fn">DATE_TRUNC</span>(<span class="str">'month'</span>, o.order_date) <span class="kw">AS</span> month,
+  <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> o.order_id) <span class="kw">AS</span> order_count,
+  <span class="fn">SUM</span>(oi.quantity * oi.unit_price * (1 - oi.discount)) <span class="kw">AS</span> revenue
+<span class="kw">FROM</span> orders o
+<span class="kw">JOIN</span> order_items oi <span class="kw">ON</span> o.order_id = oi.order_id
+<span class="kw">WHERE</span> o.order_date >= <span class="fn">CURRENT_DATE</span> - <span class="kw">INTERVAL</span> <span class="str">'12 months'</span>
+<span class="kw">GROUP BY</span> 1 <span class="kw">ORDER BY</span> 1;</div></div></div>
+
+      <div class="gate" id="gate"><h3>Unlock questions 4–10</h3><p>One email. No credit card. Instant access to 7 intermediate and advanced SQL questions.</p><div class="gate-f"><input type="email" id="ge" placeholder="your@email.com"><button class="btn bp" onclick="unlock()">Unlock free →</button></div></div>
+
+      <div id="locked" style="display:none;flex-direction:column;gap:10px">
+        <div class="qc" id="q4"><div class="qh" onclick="oq('q4')"><span class="qn">Q4</span><span class="qt">30-day rolling average revenue by region.</span><div class="qps"><span class="qp">Window Fn</span><span class="qp">Rolling Avg</span></div><span class="tag to" style="font-size:10px;padding:3px 8px;flex-shrink:0">Intermediate</span><span class="qcaret">›</span></div>
+          <div class="qbody"><div class="trow"><button class="tpill" onclick="tg('h4')">Show hint</button><button class="tpill" onclick="tg('a4')">Show answer</button></div>
+            <div class="hb" id="h4">Aggregate daily revenue by region in a CTE first. Then apply AVG() OVER with ROWS BETWEEN 29 PRECEDING AND CURRENT ROW.</div>
+            <div class="ab" id="a4"><span class="kw">WITH</span> daily <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> o.region,
+    <span class="fn">DATE_TRUNC</span>(<span class="str">'day'</span>, o.order_date) <span class="kw">AS</span> day,
+    <span class="fn">SUM</span>(oi.quantity * oi.unit_price) <span class="kw">AS</span> revenue
+  <span class="kw">FROM</span> orders o
+  <span class="kw">JOIN</span> order_items oi <span class="kw">ON</span> o.order_id = oi.order_id
+  <span class="kw">GROUP BY</span> 1, 2
+)
+<span class="kw">SELECT</span> region, day, revenue,
+  <span class="fn">AVG</span>(revenue) <span class="kw">OVER</span> (
+    <span class="kw">PARTITION BY</span> region <span class="kw">ORDER BY</span> day
+    <span class="kw">ROWS BETWEEN</span> 29 <span class="kw">PRECEDING AND CURRENT ROW</span>
+  ) <span class="kw">AS</span> rolling_30d_avg
+<span class="kw">FROM</span> daily;</div></div></div>
+
+        <div class="qc" id="q9"><div class="qh" onclick="oq('q9')"><span class="qn">Q9</span><span class="qt">Flag weeks where sales drop &gt;15% below the 4-week rolling average — an anomaly detection pattern.</span><div class="qps"><span class="qp">Anomaly</span><span class="qp">Window Fn</span></div><span class="tag tr" style="font-size:10px;padding:3px 8px;flex-shrink:0">Advanced</span><span class="qcaret">›</span></div>
+          <div class="qbody"><div class="trow"><button class="tpill" onclick="tg('h9')">Show hint</button><button class="tpill" onclick="tg('a9')">Show answer</button></div>
+            <div class="hb" id="h9">Weekly revenue CTE first. AVG() OVER with ROWS BETWEEN 4 PRECEDING AND 1 PRECEDING. Filter WHERE revenue &lt; rolling_avg * 0.85.</div>
+            <div class="ab" id="a9"><span class="kw">WITH</span> weekly <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> o.region,
+    <span class="fn">DATE_TRUNC</span>(<span class="str">'week'</span>, o.order_date) <span class="kw">AS</span> week,
+    <span class="fn">SUM</span>(oi.quantity * oi.unit_price) <span class="kw">AS</span> revenue
+  <span class="kw">FROM</span> orders o
+  <span class="kw">JOIN</span> order_items oi <span class="kw">ON</span> o.order_id = oi.order_id
+  <span class="kw">GROUP BY</span> 1, 2
+),
+with_avg <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> *,
+    <span class="fn">AVG</span>(revenue) <span class="kw">OVER</span> (
+      <span class="kw">PARTITION BY</span> region <span class="kw">ORDER BY</span> week
+      <span class="kw">ROWS BETWEEN</span> 4 <span class="kw">PRECEDING AND</span> 1 <span class="kw">PRECEDING</span>
+    ) <span class="kw">AS</span> rolling_4w_avg
+  <span class="kw">FROM</span> weekly
+)
+<span class="kw">SELECT</span> *, <span class="str">'ANOMALY'</span> <span class="kw">AS</span> flag
+<span class="kw">FROM</span> with_avg
+<span class="kw">WHERE</span> revenue &lt; rolling_4w_avg * 0.85;
+<span class="cm">-- Same pattern as gas distribution anomaly detection</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="q-sec-lbl" style="margin-top:48px">Live Practice Environment</div>
+    <div class="sbx">
+      <div class="sbar"><div class="stitle"><div class="livd"></div>SQL Sandbox</div><div class="tchips"><span class="tchip">orders</span><span class="tchip">order_items</span><span class="tchip">customers</span><span class="tchip">products</span></div></div>
+      <div class="sql-p"><span class="cm">-- Synthetic retail dataset · 4 tables · Run queries live</span>
+<span class="kw">SELECT</span>
+  o.region,
+  <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> o.order_id) <span class="kw">AS</span> orders,
+  <span class="fn">ROUND</span>(<span class="fn">SUM</span>(oi.quantity * oi.unit_price), 2) <span class="kw">AS</span> revenue
+<span class="kw">FROM</span> orders o
+<span class="kw">JOIN</span> order_items oi <span class="kw">ON</span> o.order_id = oi.order_id
+<span class="kw">GROUP BY</span> o.region
+<span class="kw">ORDER BY</span> revenue <span class="kw">DESC</span>;</div>
+      <div class="sfoot"><span class="snote">Synthetic data only · Schema matches all 10 questions · Best on desktop</span><a href="https://sqliteonline.com" target="_blank"><button class="btn bo" style="font-size:12px;padding:8px 16px">Open Live Sandbox ↗</button></a></div>
+    </div>
+  </div></div>
+
+  <div class="paid-s" id="pss"><div class="wrap">
+    <div class="q-sec-lbl">4 Tracks · Instant PDF Delivery via Gumroad</div>
+    <div class="tg-grid">
+      <div class="trk"><div class="trk-n">TRACK 01</div><div class="trk-name">SQL Mastery for DS Interviews</div><ul class="trk-l"><li>100 SQL questions — retail + energy domain tables</li><li>Full solutions with clause-by-clause explanations</li><li>Concept index: window functions, CTEs, subqueries</li><li>PDF download + live sandbox access</li></ul><div class="trk-p">$39 <sub>CAD</sub></div><button class="btn bp" onclick="toast('Redirecting to Gumroad…')">Get Track 01 →</button></div>
+      <div class="trk"><div class="trk-n">TRACK 02</div><div class="trk-name">A/B Testing & Causal Inference</div><ul class="trk-l"><li>Experiment design fundamentals</li><li>Hypothesis testing and power calculations</li><li>Uplift modeling and diff-in-diff</li><li>40 problems with solutions — energy examples</li></ul><div class="trk-p">$49 <sub>CAD</sub></div><button class="btn bp" onclick="toast('Redirecting to Gumroad…')">Get Track 02 →</button></div>
+      <div class="trk"><div class="trk-n">TRACK 03</div><div class="trk-name">DS Interview Playbook</div><ul class="trk-l"><li>ML fundamentals and model selection</li><li>System design for energy DS roles</li><li>Case study frameworks and STAR templates</li><li>60-page PDF guide</li></ul><div class="trk-p">$69 <sub>CAD</sub></div><button class="btn bp" onclick="toast('Redirecting to Gumroad…')">Get Track 03 →</button></div>
+      <div class="trk"><div class="trk-n">TRACK 04</div><div class="trk-name">Data Architecture for DS</div><ul class="trk-l"><li>Medallion architecture (Bronze → Silver → Gold)</li><li>Lakehouse and pipeline design patterns</li><li>System design practice questions</li><li>Architecture diagram templates (Canva)</li></ul><div class="trk-p">$59 <sub>CAD</sub></div><button class="btn bp" onclick="toast('Redirecting to Gumroad…')">Get Track 04 →</button></div>
+    </div>
+    <div class="coach"><h3>Work With Me Directly</h3><p>Mock interviews, targeted feedback, and full prep sessions. Book via Calendly.</p>
+      <div class="cg">
+        <div class="co"><div class="cp">$75</div><div class="cn">Interview Audit</div><div class="cd">30 min mock + written feedback. Quick gut-check before an upcoming interview.</div><button class="btn bo" onclick="toast('Opening Calendly…')">Book →</button></div>
+        <div class="co"><div class="cp">$150</div><div class="cn">Full Prep Session</div><div class="cd">60 min deep dive. Technical questions, system design, and role-specific feedback.</div><button class="btn bo" onclick="toast('Opening Calendly…')">Book →</button></div>
+        <div class="co"><div class="cp">$350</div><div class="cn">3-Session Package</div><div class="cd">Full arc — diagnosis, practice, final mock. Best for high-stakes roles.</div><button class="btn bo" onclick="toast('Opening Calendly…')">Book →</button></div>
+      </div>
+    </div>
+  </div></div>
+  <footer style="margin-top:64px"><div class="wrap"><div class="fi"><span class="fl">© 2025 Umme Munira</span><div class="fc"><a href="#" target="_blank">LinkedIn ↗</a></div><div class="fr"><input type="email" placeholder="The Energy Signal"><button class="btn bp" style="padding:8px 14px;font-size:12px" onclick="toast('Subscribed!')">→</button></div></div></div></footer>
+</div>
+
+<!-- PROJECTS -->
+<div class="page" id="pg-projects">
+  <div class="prj-h"><div class="wrap"><div class="eyebrow">Portfolio</div><h1 class="page-title">Things I've Built</h1><p class="page-sub">ML systems built under real production constraints with energy domain context.</p></div></div>
+  <div class="wrap"><div class="prj-list">
+    <div class="prj-item"><div><div class="ps live"><div class="li"></div>Live</div><div class="pn">Load Forecast Error Explorer</div><div class="pd">Interactive tool for visualising how accuracy metrics behave across forecast horizons — and where each one misleads. Makes the MAPE vs. pinball loss tradeoff visible for operational vs. planning forecasts.</div><div class="sr"><span class="sb">Python</span><span class="sb">Streamlit</span><span class="sb">matplotlib</span></div></div><div class="pa2"><button class="btn bp" onclick="toast('Opening demo…')">Live demo ↗</button><button class="btn bo" onclick="toast('Opening GitHub…')">GitHub ↗</button></div></div>
+    <div class="prj-item"><div><div class="ps wr">● Writeup Only</div><div class="pn">Gas Distribution Anomaly Detection</div><div class="pd">Rolling statistical anomaly detection for gas distribution network data. Identifies abnormal flow patterns across a distribution network with irregular measurement frequency and high seasonal variance. Anonymised — no proprietary data used.</div><div class="sr"><span class="sb">Python</span><span class="sb">Azure Databricks</span><span class="sb">Power BI</span></div></div><div class="pa2"><button class="btn bo" onclick="toast('Opening writeup…')">Read writeup ↗</button></div></div>
+    <div class="prj-item"><div><div class="ps live"><div class="li"></div>Live</div><div class="pn">Forecasting Benchmark Comparison</div><div class="pd">Reproducible comparison of MAPE, pinball loss, and skill score on synthetic energy demand data. No publicly available benchmark compared these metrics on energy-domain time series — so I built one.</div><div class="sr"><span class="sb">Python</span><span class="sb">pandas</span><span class="sb">matplotlib</span><span class="sb">Jupyter</span></div></div><div class="pa2"><button class="btn bo" onclick="toast('Opening GitHub…')">GitHub ↗</button></div></div>
+    <div class="prj-item"><div><div class="ps prog">◐ In Progress</div><div class="pn">Energy Data Pipeline Template</div><div class="pd">Medallion architecture template (Bronze → Silver → Gold) adapted for utility load data. Mid-market utilities have no production-ready starting point for modern data pipelines. A forkable template deployable in weeks, not months.</div><div class="sr"><span class="sb">Python</span><span class="sb">Azure Data Factory</span><span class="sb">Microsoft Fabric</span></div></div><div class="pa2"><button class="btn bg" onclick="toast('Coming soon')">Coming soon</button></div></div>
+  </div></div>
+  <footer style="margin-top:64px"><div class="wrap"><div class="fi"><span class="fl">© 2025 Umme Munira</span><div class="fc"><a href="#" target="_blank">LinkedIn ↗</a></div><div class="fr"><input type="email" placeholder="The Energy Signal"><button class="btn bp" style="padding:8px 14px;font-size:12px" onclick="toast('Subscribed!')">→</button></div></div></div></footer>
+</div>
+
+<!-- CONSULTING -->
+<div class="page" id="pg-consulting">
+  <div class="ch"><div class="wrap"><div class="ch-grid">
+    <div>
+      <div class="eyebrow">Fractional Expertise</div>
+      <h1 class="page-title">Consulting</h1>
+      <p class="page-sub">Senior DS expertise for energy companies — without the full-time hire. Focused engagements. Fixed scope. Real deliverables.</p>
+      <ul class="crl">
+        <li class="cri">Built gas demand forecasting pipelines serving thousands of delivery points on Azure Databricks</li>
+        <li class="cri">Designed rolling anomaly detection systems for gas distribution networks in production</li>
+        <li class="cri">Developed medallion data architecture for utility load forecasting on Microsoft Fabric F64</li>
+        <li class="cri">10+ years across regulated utilities, O&G operations, and energy regulation in Alberta</li>
+      </ul>
+    </div>
+    <div class="foc">
+      <div class="fi3">📈 Load forecasting system builds</div>
+      <div class="fi3">⚙️ MLOps pipeline design</div>
+      <div class="fi3">🔍 Anomaly detection</div>
+      <div class="fi3">🏗️ Data infrastructure</div>
+      <div class="fi3">📊 Predictive optimisation</div>
+      <div class="fi3">🧪 Experimentation design</div>
+    </div>
+  </div></div></div>
+  <div class="pr-s"><div class="wrap">
+    <div class="eyebrow">Engagement Options</div>
+    <div class="pr-g">
+      <div class="pc"><div class="pname">Advisory Call</div><div class="pamt">$200 <small>CAD</small></div><div class="pdesc">60 minutes. Scoped problem. Concrete recommendations. No ongoing commitment. Book directly via Calendly.</div><button class="btn bp" onclick="toast('Opening Calendly…')">Book now →</button></div>
+      <div class="pc feat"><div class="pop">Most popular</div><div class="pname">Project Engagement</div><div class="pamt">Custom</div><div class="pdesc">4–8 week focused build. Scoped upfront. Fixed price or weekly retainer. Delivered with full documentation.</div><button class="btn bp" onclick="toast('Scroll down to inquire')">Inquire →</button></div>
+      <div class="pc"><div class="pname">Fractional DS</div><div class="pamt">Custom</div><div class="pdesc">4–8 hours/week, minimum 3 months. For teams that need a senior DS embedded part-time without a full-time hire.</div><button class="btn bp" onclick="toast('Scroll down to inquire')">Inquire →</button></div>
+    </div>
+  </div></div>
+  <div class="con-s"><div class="wrap"><div class="con-g">
+    <div><div class="eyebrow">Get in touch</div><h2 style="font-family:var(--fn-serif);font-size:32px;color:var(--black);letter-spacing:-.8px;margin-bottom:14px">Send an inquiry</h2><p style="font-size:15px;color:var(--text2);line-height:1.65">Tell me about the problem you're working on. I respond within 2 business days and take on a small number of engagements at a time.</p></div>
+    <div><div class="fg">
+      <div class="fgrp"><label class="flbl">Name</label><input type="text" placeholder="Your name"></div>
+      <div class="fgrp"><label class="flbl">Company</label><input type="text" placeholder="Company name"></div>
+      <div class="fgrp"><label class="flbl">Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="fgrp"><label class="flbl">Engagement type</label><select><option>Select…</option><option>Advisory Call</option><option>Project Engagement</option><option>Fractional DS</option><option>Other</option></select></div>
+      <div class="fgrp full"><label class="flbl">Brief description</label><textarea placeholder="Tell me about the problem you're working on…"></textarea></div>
+      <div class="fgrp"><button class="btn bp" onclick="toast('Sent — I\'ll respond within 2 business days')">Send inquiry →</button></div>
+    </div></div>
+  </div></div></div>
+  <footer><div class="wrap"><div class="fi"><span class="fl">© 2025 Umme Munira</span><div class="fc"><a href="#" target="_blank">LinkedIn ↗</a></div><div class="fr"><input type="email" placeholder="The Energy Signal"><button class="btn bp" style="padding:8px 14px;font-size:12px" onclick="toast('Subscribed!')">→</button></div></div></div></footer>
+</div>
+
+<!-- BUILDING -->
+<div class="page" id="pg-building">
+  <div class="bld">
+    <div class="bld-hero"><div class="wrap"><div class="bld-in">
+      <div class="eyebrow">What I'm Building Toward</div>
+      <h1 class="bld-title">The infrastructure<br>layer that's <span class="red">missing.</span></h1>
+      <div class="bld-body">
+        <p>Mid-market gas distribution utilities — the companies serving <strong>50,000 to 500,000 customers</strong> — have a forecasting problem nobody is solving well.</p>
+        <p>They're too small to build sophisticated ML forecasting systems in-house. Too operationally complex for generic time-series tools to work out of the box. And the enterprise vendors selling to large utilities aren't interested in scoping down for a mid-market customer.</p>
+        <p>The result: utilities run demand forecasting on tools built in a previous era, submit load forecasts to regulators that don't reflect structural changes in their customer base, and make infrastructure investments based on planning models calibrated <strong>before electrification was a real variable.</strong></p>
+        <div class="bld-rule"></div>
+        <p>I've spent the last several years building forecasting systems from inside this problem. I know what good infrastructure looks like, what it costs not to have it, and what it would take to build it as a product.</p>
+        <p>If you're thinking about this market — as an operator who lives this problem, an investor building a thesis around utility infrastructure, or a builder who wants to work on it — <strong>I'd like to talk.</strong></p>
+      </div>
+      <div class="bld-cta">
+        <button class="btn bp" onclick="go('consulting');toast('Use the inquiry form to start a conversation')">Start a conversation →</button>
+        <span class="bld-note">No pitch. No deck. Just a conversation.</span>
+      </div>
+    </div></div></div>
+  </div>
+  <footer><div class="wrap"><div class="fi"><span class="fl">© 2025 Umme Munira</span><div class="fc"><a href="#" target="_blank">LinkedIn ↗</a></div><div class="fr"><input type="email" placeholder="The Energy Signal"><button class="btn bp" style="padding:8px 14px;font-size:12px" onclick="toast('Subscribed!')">→</button></div></div></div></footer>
+</div>
+
+<script>
+function go(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  ['nh','nw','np','nj','nc','nb'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById('pg-'+n).classList.add('active');
+  const map={home:'nh',writing:'nw',prep:'np',projects:'nj',consulting:'nc',building:'nb'};
+  document.getElementById(map[n]).classList.add('active');
+  window.scrollTo(0,0);
+}
+function oq(id){const c=document.getElementById(id);if(c)c.classList.toggle('open')}
+function tg(id){const e=document.getElementById(id);if(e)e.classList.toggle('show')}
+function filt(b){document.querySelectorAll('.fp').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
+function showT(t){
+  const fs=document.getElementById('fss'),ps=document.getElementById('pss');
+  const tf=document.getElementById('tbf'),tp=document.getElementById('tbp');
+  if(t==='free'){fs.style.display='block';ps.classList.remove('show');tf.className='tb2 fa';tp.className='tb2 pi'}
+  else{fs.style.display='none';ps.classList.add('show');tf.className='tb2 fi2';tp.className='tb2 pa'}
+}
+function unlock(){
+  const e=document.getElementById('ge').value;
+  if(!e||!e.includes('@')){toast('Please enter a valid email');return}
+  document.getElementById('gate').style.display='none';
+  const l=document.getElementById('locked');l.style.display='flex';l.style.flexDirection='column';l.style.gap='10px';
+  toast('✓ Access unlocked — questions 4–10 available');
+}
+function sub(id){
+  const e=document.getElementById(id);
+  if(!e.value||!e.value.includes('@')){toast('Please enter a valid email');return}
+  e.value='';toast('✓ Subscribed to The Energy Signal');
+}
+function toast(msg){
+  const t=document.getElementById('t0');t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+document.addEventListener('click',function(e){
+  const h=e.target.closest('.qh');
+  if(h){const c=h.closest('.qc');if(c)c.classList.toggle('open')}
+});
+</script>
+</body>
+</html>
